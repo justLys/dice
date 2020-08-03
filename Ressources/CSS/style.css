@@ -1,0 +1,300 @@
+/*GLOBAL*/
+* {
+    font-family: sans-serif;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background-color: #424954;
+}
+
+p {
+    color: #9aa1ad;
+    font-size: 120%;
+    margin: 5px;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+}
+
+.tutorialText {
+    font-style: italic;
+    font-size: 100%;
+}
+
+.tutorialText.hiddenTutorial {
+    display: none;
+}
+
+.tutorialToggleButton {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border: 2px solid #9aa1ad;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 80%;
+    padding-left: 5px;
+    padding-right: 5px;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tutorialToggleButton:hover {
+    background-color: #9aa1ad;
+    border-color: #d2d6de;
+}
+
+.tutorialToggleButton:hover>p{
+    color: #d2d6de;
+}
+
+.tutorialToggleButton:hover::after {
+    position: absolute;
+    width: 100px;
+    top: 8px;
+    left: 40px;
+    content: "Toggle tutorials";
+    color: #9aa1ad;
+}
+
+.bigRow {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.selected {
+    background-color: #3b536f !important;
+    border-color: #d2d6de !important;
+    color: #d2d6de !important;
+}
+
+.selected > span {
+    color: #d2d6de !important;
+}
+
+/*DICE DISPLAY*/
+.diceDisplayContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+.diceDisplay {
+    width: 70px;
+    height: 70px;
+    background-color: #282c31;
+    border: 4px solid #9aa1ad;
+    border-radius: 15%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.diceDisplay>span {
+    color: #9aa1ad;
+    font-size: 150%;
+    text-align: center;
+    user-select: none;
+}
+
+.diceDisplay:hover {
+    background-color: black;
+    border-color: #d2d6de;
+}
+
+.bigDisplay > .diceDisplay {
+    width: 200px;
+    height: 200px;
+    background-color: #283e58;
+    animation-name: glow-appear;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+.bigDisplay > .diceDisplay:hover {
+    background-color: #3b536f;
+}
+
+.bigDisplay > .diceDisplay > span {
+    font-size: 200%;
+    color: #d2d6de;
+    animation-name: result-display-appear;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes glow-appear {
+    from {
+        background-color: #3b536f;
+        box-shadow: 0px 0px 48px 3px rgba(210,214,222,0.85), inset 0px 0px 48px 3px rgba(210,214,222,0.85);}
+}
+
+@keyframes result-display-appear {
+    from {opacity: 0;}
+}
+
+.intermediateRollsContainer>.diceDisplay {
+    cursor: default;
+    pointer-events: none;
+}
+
+/*PARAMETERS FORM*/
+.parametersFormContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 2px solid #9aa1ad;
+}
+
+.parametersFormArea {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.parametersFormArea>button {
+    min-width: 180px;
+    padding: 10px;
+    background-color: #282c31;
+    border: 4px solid #9aa1ad;
+    border-radius: 10px;
+    color: #9aa1ad;
+    font-size: 120%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.parametersFormArea>button:hover {
+    background-color: black;
+    border-color: #d2d6de;
+}
+
+.parametersFormArea>button:focus {
+    outline: none;
+}
+
+.parametersForm {
+    /*width: 500px;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    color: #9aa1ad;
+}
+
+.formSmallNumberInputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
+
+.formSmallNumberInput {
+    text-align: center;
+    font-weight: bold;
+    color: #626871;
+    font-size: 120%;
+    width: 40px;
+    padding: 5px;
+    border: 4px solid #9aa1ad;
+    background-color: #d2d6de;
+    border-right: 0;
+    border-left: 0;
+}
+
+.formSmallNumberInput::-webkit-inner-spin-button, .formSmallNumberInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.formSmallNumberInput:focus {
+    outline: none;
+}
+
+.formSmallNumberInputSideButton {
+    text-align: center;
+    color: #9aa1ad;
+    font-size: 120%;
+    width: 20px;
+    padding: 5px;
+    border: 4px solid #9aa1ad;
+    background-color: #282c31;
+    transition: all 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.formSmallNumberInputLeftButton {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.formSmallNumberInputRightButton {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.formSmallNumberInputSideButton:hover {
+    background-color: black;
+    border-color: #d2d6de;
+}
+
+.formToggleInputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
+
+.formToggleInput {
+    text-align: center;
+    color: #9aa1ad;
+    font-size: 120%;
+    min-width: 150px;
+    padding: 15px;
+    border: 4px solid #9aa1ad;
+    background-color: #282c31;
+    transition: all 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.formToggleInput:hover{
+    background-color: black;
+    border-color: #d2d6de;
+}
+
+.formToggleInputLeftSideButton {
+    border-right-width: 2px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.formToggleInputRightSideButton {
+    border-left-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.formToggleInput.selected {
+    cursor: default;
+}
